@@ -3,7 +3,6 @@ use clap::{Arg, App};
 
 mod read;
 mod write;
-mod today;
 mod age_calculator;
 
 fn main(){
@@ -22,7 +21,7 @@ fn main(){
         .get_matches();
 
         let input_file = matches.value_of("input").expect("Path not found");
-        let output_file = matches.value_of("output".expect("Output file could not be created");
+        let output_file = matches.value_of("output").expect("Output file could not be created");
         let input = read::read(input_file);
         let mut output = write::write(output_file);
         age_calculator::age_calculator(input,&mut output);
